@@ -60,7 +60,7 @@ class DoubleLinkedList():
         new_node = Node(value)
         i = 0
         node = self.head
-        while i != index:  
+        while i != index + 1:  
             if i == index:
                 if index == 0:
                     self.add_back(value)
@@ -111,10 +111,10 @@ class DoubleLinkedList():
                             self.head = node.next
                             node.next.previous = None
                         self.length-=1
-                    else:
-                        node = node.next
+                    node = node.next
             if node.value == value:
                 self.tail = node.previous  
+                node.previous.next = None
                 self.length -= 1
     
     def __iter__(self):
